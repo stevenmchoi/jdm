@@ -47,13 +47,13 @@ def url_exist(name, url_string)
         # Some pages 404 even though they properly redirect to login pages
         STDERR.puts "Entry #{name} returned HTTP 404"
     end
-rescue Errno::ECONNRESET,
-       Errno::EHOSTUNREACH,
-       Errno::ENOENT,
-       Errno::ETIMEDOUT,
-       Net::OpenTimeout,
-       Net::ReadTimeout,
-       SocketError => e
+rescue  Errno::ECONNRESET,
+        Errno::EHOSTUNREACH,
+        Errno::ENOENT,
+        Errno::ETIMEDOUT,
+        Net::OpenTimeout,
+        Net::ReadTimeout,
+        SocketError => e
     # All categories where a site is most definitely non-operational
     puts "HTTP request failed to #{name}: #{e.inspect}"
     false

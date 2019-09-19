@@ -66,10 +66,10 @@ json = JSON.parse(File.read('_data/sites.json'))
 pool = ThreadPool.new(20)
 # check if a website is alive
 json.each_with_index do |(key, _), i|
-	name = key['name']
-	url = key['url']
-	pool.schedule(name, url) do |name , url|
-		url_exist(name, url)
-	end
+    name = key['name']
+    url = key['url']
+    pool.schedule(name, url) do |name , url|
+        url_exist(name, url)
+    end
 end
 pool.run!

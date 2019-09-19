@@ -25,11 +25,11 @@ json_files.each do |file|
             #   i = 0
             # hence, the key variable holds the actual value
             if File.basename(file) =~ /sites.json/
-				unless key.key?('url')
-					# Forces all sites.json entries to have a URL key
-					STDERR.puts "Entry: #{name} has no URL"
-					exit 3
-				end
+                unless key.key?('url')
+                    # Forces all sites.json entries to have a URL key
+                    STDERR.puts "Entry: #{name} has no URL"
+                    exit 3
+                end
                 name = get_transformed_name(key)
                 prev_name = get_transformed_name(json[i - 1])
             else
